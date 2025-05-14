@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test1-test
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/your-org/gitops-infra.git
+    targetRevision: HEAD
+    path: apps/test1/test
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
