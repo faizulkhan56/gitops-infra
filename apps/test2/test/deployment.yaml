@@ -15,7 +15,7 @@ kind: Deployment
 metadata:
   name: test2
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: test2
@@ -25,7 +25,14 @@ spec:
         app: test2
     spec:
       containers:
-      - image: faizul56/test2-app:cd0da67
+      - image: faizul56/test2-app:ba2ea10
         name: test2
         ports:
         - containerPort: 3001
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
