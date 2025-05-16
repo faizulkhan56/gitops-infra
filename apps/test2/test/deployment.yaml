@@ -15,7 +15,7 @@ kind: Deployment
 metadata:
   name: test2
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: test2
@@ -25,7 +25,7 @@ spec:
         app: test2
     spec:
       containers:
-      - image: faizul56/test2-app:ba2ea10
+      - image: faizul56/test2-app:9cb9bab
         name: test2
         ports:
         - containerPort: 3001
