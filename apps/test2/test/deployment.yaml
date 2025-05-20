@@ -25,7 +25,7 @@ spec:
         app: test2
     spec:
       containers:
-      - image: faizul56/test2-app:33b9ff7
+      - image: faizul56/test2-app:3a1f73e
         name: test2
         ports:
         - containerPort: 3001
