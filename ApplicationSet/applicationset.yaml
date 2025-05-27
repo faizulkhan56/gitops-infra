@@ -9,17 +9,20 @@ spec:
         elements:
           - name: app2
             repoURL: https://github.com/faizulkhan56/argocd-app2
+            targetRevision: ci-artifacts
             path: manifests
             namespace: subscription
 
   template:
     metadata:
       name: '{{name}}'
+      annotations:
+        notifications.argoproj.io/triggers: on-sync-succeeded
     spec:
       project: default
       source:
         repoURL: '{{repoURL}}'
-        targetRevision: HEAD
+        targetRevision: '{{targetRevision}}'
         path: '{{path}}'
         kustomize: {}
       destination:
